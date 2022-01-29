@@ -21,8 +21,6 @@
         <junit-jupiter.version>5.8.2</junit-jupiter.version>
         <mockito-core.version>4.2.0</mockito-core.version>
         <javaee-api.version>8.0</javaee-api.version>
-        <spring-version>5.2.3.RELEASE</spring-version>
-        <junit.version>4.12</junit.version>
     </properties>
 
     <dependencies>

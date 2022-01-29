@@ -1,4 +1,4 @@
-package com.github.kondyreva.graduation.keyboard_interface;
+package com.github.kondyreva.graduation;
 
 import com.github.kondyreva.graduation.keyboard_interface.InputOutputFromConsole;
 import com.github.kondyreva.graduation.keyboard_interface.InputOutputBalanceFromConsole;
