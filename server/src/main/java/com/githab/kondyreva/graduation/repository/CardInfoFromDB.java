@@ -1,6 +1,6 @@
-package com.github.maven.graduation.repository;
+package com.githab.kondyreva.graduation.repository;
 
-import com.github.maven.graduation.dto.Card;
+import com.githab.kondyreva.graduation.dto.Card;
 
 import java.time.LocalDate;
 

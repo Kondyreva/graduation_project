@@ -1,7 +1,7 @@
-package com.github.maven.graduation;
+package com.githab.kondyreva.graduation;
 
-import com.github.maven.graduation.keyboard_interface.InputOutputBalanceFromConsole;
-import com.github.maven.graduation.keyboard_interface.InputOutputFromConsole;
+import com.githab.kondyreva.graduation.keyboard_interface.InputOutputFromConsole;
+import com.githab.kondyreva.graduation.keyboard_interface.InputOutputBalanceFromConsole;
 
 public class Main {
 

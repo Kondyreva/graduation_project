@@ -1,8 +1,8 @@
-package com.github.maven.graduation.service;
+package com.githab.kondyreva.graduation.service;
 
-import com.github.maven.graduation.dto.Card;
-import com.github.maven.graduation.repository.CardInfoFromDB;
-import com.github.maven.graduation.repository.InfoFromDB;
+import com.githab.kondyreva.graduation.repository.CardInfoFromDB;
+import com.githab.kondyreva.graduation.repository.InfoFromDB;
+import com.githab.kondyreva.graduation.dto.Card;
 
 import java.time.LocalDate;
 
@@ -22,8 +22,8 @@ public class AtmTransaction implements CardTransaction {
                     return "Срок действия карты истек";
                 }
 
-                return "Баланс вашей карты " + card.getBalance().toString()
-                        + " " + card.getCurrency();
+                return "Баланс вашей карты " + card.getBalance().getBalance()
+                        + " " + card.getBalance().getCurrency();
             } else return "Введен неверный пин";
         } else return "Карта не найдена";
     }

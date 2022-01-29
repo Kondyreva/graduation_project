@@ -1,4 +1,4 @@
-package com.github.maven.graduation.dto;
+package com.githab.kondyreva.graduation.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,6 +14,5 @@ public class Card {
     private LocalDate expireDate;
     private String cardNumber;
     private String pin;
-    private Double balance;
-    private String currency;
+    Balance balance;
 }

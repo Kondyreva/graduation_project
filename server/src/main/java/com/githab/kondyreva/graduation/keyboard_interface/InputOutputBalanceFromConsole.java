@@ -1,11 +1,11 @@
-package com.github.maven.graduation.keyboard_interface;
+package com.githab.kondyreva.graduation.keyboard_interface;
 
-import com.github.maven.graduation.service.AtmTransaction;
-import com.github.maven.graduation.service.CardTransaction;
+import com.githab.kondyreva.graduation.service.AtmTransaction;
+import com.githab.kondyreva.graduation.service.CardTransaction;
 
 import java.util.Scanner;
 
-public class InputOutputBalanceFromConsole implements InputOutputFromConsole {
+public class InputOutputBalanceFromConsole implements InputOutputFromConsole{
     @Override
     public void dealingWithBalanceFromConsole() {
         CardTransaction cardTransaction = new AtmTransaction();

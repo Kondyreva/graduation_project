@@ -1,4 +1,4 @@
-package com.github.maven.graduation.keyboard_interface;
+package com.githab.kondyreva.graduation.keyboard_interface;
 
 public interface InputOutputFromConsole {
     void dealingWithBalanceFromConsole();
