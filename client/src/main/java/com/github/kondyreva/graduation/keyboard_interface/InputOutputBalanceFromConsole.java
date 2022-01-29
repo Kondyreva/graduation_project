@@ -1,4 +1,4 @@
-package com.githab.kondyreva.graduation.keyboard_interface;
+package com.github.kondyreva.graduation.keyboard_interface;
 
 import com.githab.kondyreva.graduation.service.AtmTransaction;
 import com.githab.kondyreva.graduation.service.CardTransaction;
