@@ -10,15 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <junit-jupiter.version>5.8.2</junit-jupiter.version>
         <junit-jupiter-engin.version>5.8.2</junit-jupiter-engin.version>
         <mockito-core.version>4.2.0</mockito-core.version>
-
+        <server.version>1.0-SNAPSHOT</server.version>
     </properties>
 
     <artifactId>client</artifactId>
@@ -26,7 +23,7 @@
         <dependency>
             <groupId>org.example</groupId>
             <artifactId>server</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${server.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -48,6 +45,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 
 </project>

@@ -1,5 +1,6 @@
 package com.githab.kondyreva.graduation.repository;
 
+import com.githab.kondyreva.graduation.Currency;
 import com.githab.kondyreva.graduation.dto.Balance;
 import com.githab.kondyreva.graduation.dto.Card;
 
@@ -11,7 +12,7 @@ public class CardInfoFromDB implements InfoFromDB {
     public Card getCardInfo(String cardNumber) {
         /*TODO: реализовать через БД H2*/
         Card card = new Card(false, LocalDate.ofYearDay(2025, 1), "123",
-                "123", new Balance(200,"RUB"));
+                "123", new Balance(200, Currency.RUB.name()));
         return card;
     }
 }

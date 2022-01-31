@@ -13,6 +13,7 @@ public class AtmTransaction implements CardTransaction {
         InfoFromDB infoFromDB = new CardInfoFromDB();
 
         Card card = infoFromDB.getCardInfo(cardNumber);
+        /*TODO поменять на optional!!!*/
         if (card != null) {
             if (card.getPin().equals(pin)) {
                 if (card.getIsBlocked()) {
