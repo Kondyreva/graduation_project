@@ -5,6 +5,7 @@ import com.githab.kondyreva.graduation.repository.InfoFromDB;
 import com.githab.kondyreva.graduation.dto.Card;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class AtmTransaction implements CardTransaction {
 
@@ -12,19 +13,19 @@ public class AtmTransaction implements CardTransaction {
     public String getBalance(String cardNumber, String pin) {
         InfoFromDB infoFromDB = new CardInfoFromDB();
 
-        Card card = infoFromDB.getCardInfo(cardNumber);
-        /*TODO поменять на optional!!!*/
-        if (card != null) {
-            if (card.getPin().equals(pin)) {
-                if (card.getIsBlocked()) {
+        /*Card card = infoFromDB.getCardInfo(cardNumber);*/
+        Optional<Card> card = Optional.ofNullable(infoFromDB.getCardInfo(cardNumber));
+        if (card.isPresent()) {
+            if (card.get().getPin().equals(pin)) {
+                if (card.get().getIsBlocked()) {
                     return "Карта заблокирована";
                 }
-                if (card.getExpireDate().isBefore(LocalDate.now())) {
+                if (card.get().getExpireDate().isBefore(LocalDate.now())) {
                     return "Срок действия карты истек";
                 }
 
-                return "Баланс вашей карты " + card.getBalance().getBalance()
-                        + " " + card.getBalance().getCurrency();
+                return "Баланс вашей карты " + card.get().getBalance().getBalance()
+                        + " " + card.get().getBalance().getCurrency();
             } else return "Введен неверный пин";
         } else return "Карта не найдена";
     }

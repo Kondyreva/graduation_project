@@ -1,4 +1,4 @@
-package com.githab.kondyreva.graduation.dto;
+package com.github.kondyreva.graduation;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Balance {
+public class BalanceReturn {
     private double balance;
     private String currency;
 }

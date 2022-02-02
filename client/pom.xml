@@ -2,12 +2,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
     <parent>
+        <groupId>com.github.kondyreva.graduation</groupId>
         <artifactId>graduation_project</artifactId>
-        <groupId>org.example</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.kondyreva.graduation</groupId>
+    <artifactId>client</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>graduation-project-client</name>
+    <description>graduation project atm</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,17 +23,10 @@
         <junit-jupiter.version>5.8.2</junit-jupiter.version>
         <junit-jupiter-engin.version>5.8.2</junit-jupiter-engin.version>
         <mockito-core.version>4.2.0</mockito-core.version>
-        <server.version>1.0-SNAPSHOT</server.version>
     </properties>
 
-    <artifactId>client</artifactId>
+
     <dependencies>
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>server</artifactId>
-            <version>${server.version}</version>
-            <scope>compile</scope>
-        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>

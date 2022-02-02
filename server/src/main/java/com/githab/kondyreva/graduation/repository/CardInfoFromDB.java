@@ -1,6 +1,6 @@
 package com.githab.kondyreva.graduation.repository;
 
-import com.githab.kondyreva.graduation.Currency;
+import com.githab.kondyreva.graduation.enums.Currency;
 import com.githab.kondyreva.graduation.dto.Balance;
 import com.githab.kondyreva.graduation.dto.Card;
 
