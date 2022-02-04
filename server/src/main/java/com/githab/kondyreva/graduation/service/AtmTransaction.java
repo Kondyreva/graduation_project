@@ -13,7 +13,6 @@ public class AtmTransaction implements CardTransaction {
     public String getBalance(String cardNumber, String pin) {
         InfoFromDB infoFromDB = new CardInfoFromDB();
 
-        /*Card card = infoFromDB.getCardInfo(cardNumber);*/
         Optional<Card> card = Optional.ofNullable(infoFromDB.getCardInfo(cardNumber));
         if (card.isPresent()) {
             if (card.get().getPin().equals(pin)) {

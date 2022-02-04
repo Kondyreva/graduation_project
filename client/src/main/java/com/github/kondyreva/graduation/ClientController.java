@@ -1,32 +1,30 @@
 package com.github.kondyreva.graduation;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/balance")
 public class ClientController {
-    private final String sharedKey = "123";
 
-    private static final String SUCCESS_STATUS = "success";
-    private static final String ERROR_STATUS = "error";
-    private static final int CODE_SUCCESS = 100;
-    private static final int AUTH_FAILURE = 102;
+    @GetMapping("/get")
+    public ResponseEntity<String> get(/*@RequestBody CardInputData request*/) {
 
-    @PostMapping("/get")
-    public BalanceReturn get(@RequestParam(value = "key") String key, @RequestBody CardInputData request) {
 
-        BalanceReturn response;
+       /*  String pin = request.getPin();
+           String cardNumber = request.getCardNumber();*/
+        RestTemplate restTemplate = new RestTemplate();
+        String resourceUrl
+                = "http://localhost:8080/server/getinfo";
+        ResponseEntity<String> response
+                = restTemplate.getForEntity(resourceUrl, String.class);
 
-        if (sharedKey.equalsIgnoreCase(key)) {
-            String pin = request.getPin();
-            String cardNumber = request.getCardNumber();
-            // Process the request
-            // ....
-            // Return success response to the client.
-            response = new BalanceReturn(200.0,"USD");
-        } else {
-            response = new BalanceReturn();
+        if (HttpStatus.OK.equals(response.getStatusCode())) {
+            return new ResponseEntity<>(response.getBody(), HttpStatus.OK);
         }
-        return response;
+
+        return new ResponseEntity<>("No balance :-(", HttpStatus.NO_CONTENT);
     }
 }

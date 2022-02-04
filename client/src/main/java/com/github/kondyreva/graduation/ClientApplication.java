@@ -1,13 +1,13 @@
-package com.githab.kondyreva.graduation;
+package com.github.kondyreva.graduation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GraduationProjectServerApplication {
+public class ClientApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GraduationProjectServerApplication.class, args);
+        SpringApplication.run(ClientApplication.class, args);
     }
 
 }
