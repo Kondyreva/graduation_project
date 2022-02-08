@@ -14,7 +14,7 @@ public class ServerController {
     private static final Logger LOGGER = LoggerFactory.getLogger(ServerController.class);
 
     @PostMapping("/getinfo")
-    public ResponseEntity<String> getInfo(@RequestHeader("cardNumber") Integer cardNumber, @RequestHeader("pin") Integer pin) {
+    public ResponseEntity<String> getInfo(@RequestHeader("cardNumber") int cardNumber, @RequestHeader("pin") int pin) {
         LOGGER.debug("cardNumber=" + cardNumber + ", pin=" + pin);
         CardTransaction card = new AtmTransaction();
 

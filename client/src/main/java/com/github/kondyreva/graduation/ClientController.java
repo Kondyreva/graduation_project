@@ -18,16 +18,16 @@ public class ClientController {
     private static final String MY_LOGIN = "admin";
 
     @GetMapping("/card_number/{cardNumber}/pin/{pin}")
-    public ResponseEntity<String> get(@PathVariable("cardNumber") Integer cardNumber,
-                                      @PathVariable("pin") Integer pin) {
+    public ResponseEntity<String> get(@PathVariable("cardNumber") int cardNumber,
+                                      @PathVariable("pin") int pin) {
         LOGGER.debug("card_number " + cardNumber + " pin " + pin);
         RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders requestHeaders = createHeaders(MY_LOGIN, MY_PASSWORD); /*new HttpEntity<String>(createHeaders(MY_LOGIN, MY_PASSWORD))*/
         requestHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         requestHeaders.setContentType(MediaType.APPLICATION_JSON);
-        requestHeaders.set("cardNumber", cardNumber.toString());
-        requestHeaders.set("pin", pin.toString());
+        requestHeaders.set("cardNumber", String.valueOf(cardNumber));
+        requestHeaders.set("pin", String.valueOf(pin));
 
         LOGGER.debug(requestHeaders.toString());
 

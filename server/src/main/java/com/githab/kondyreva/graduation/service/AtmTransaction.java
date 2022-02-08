@@ -10,7 +10,7 @@ import java.util.Optional;
 public class AtmTransaction implements CardTransaction {
 
     @Override
-    public String getBalance(Integer cardNumber, Integer pin) {
+    public String getBalance(int cardNumber, int pin) {
         InfoFromDB infoFromDB = new CardInfoFromDB();
 
         Optional<Card> card = Optional.ofNullable(infoFromDB.getCardInfo(cardNumber));
