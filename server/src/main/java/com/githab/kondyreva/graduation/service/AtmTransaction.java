@@ -15,8 +15,8 @@ public class AtmTransaction implements CardTransaction {
 
         Optional<Card> card = Optional.ofNullable(infoFromDB.getCardInfo(cardNumber));
         if (card.isPresent()) {
-            if (card.get().getPin().equals(pin)) {
-                if (card.get().getIsBlocked()) {
+            if (card.get().getPin() == pin) {
+                if (card.get().isBlocked()) {
                     return "Карта заблокирована";
                 }
                 if (card.get().getExpireDate().isBefore(LocalDate.now())) {
