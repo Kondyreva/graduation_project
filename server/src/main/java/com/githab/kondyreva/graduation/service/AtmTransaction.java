@@ -23,8 +23,8 @@ public class AtmTransaction implements CardTransaction {
                     return "Срок действия карты истек";
                 }
 
-                return "Баланс вашей карты " + card.get().getBalance().getBalance()
-                        + " " + card.get().getBalance().getCurrency();
+                return "Баланс вашей карты " + card.get()/*.getBalance()*/.getAmount()
+                        + " " + card.get()/*.getBalance()*/.getCurrency();
             } else return "Введен неверный пин";
         } else return "Карта не найдена";
     }

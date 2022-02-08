@@ -2,17 +2,24 @@ package com.githab.kondyreva.graduation.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
+import javax.persistence.*;
 
 import java.time.LocalDate;
 
 @Getter
-@Setter
 @AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "card")
 public class Card {
-    private boolean isBlocked;
-    private LocalDate expireDate;
+    @Id
+    private int id;
     private int cardNumber;
     private int pin;
-    private Balance balance;
+    private boolean isBlocked;
+    private LocalDate expireDate;
+    private double amount;
+    private String currency;
+
 }

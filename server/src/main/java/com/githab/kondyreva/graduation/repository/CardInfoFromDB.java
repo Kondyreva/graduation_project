@@ -11,8 +11,10 @@ public class CardInfoFromDB implements InfoFromDB {
     @Override
     public Card getCardInfo(int cardNumber) {
         /*TODO: реализовать через БД H2*/
-        Card card = new Card(false, LocalDate.ofYearDay(2025, 1), cardNumber,
-                123, new Balance(200, Currency.RUB.name()));
+        /*Card card = new Card(false, LocalDate.ofYearDay(2025, 1), cardNumber,
+                123, new Balance(200, Currency.RUB.name()));*/
+        Card card = new Card(1,cardNumber,123, false, LocalDate.ofYearDay(2025, 1),
+                200, Currency.RUB.name());
         return card;
     }
 }

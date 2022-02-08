@@ -10,6 +10,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Balance {
-    private double balance;
+    private double amount;
     private String currency;
 }
