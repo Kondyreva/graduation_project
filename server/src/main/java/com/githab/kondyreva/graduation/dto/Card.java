@@ -10,9 +10,9 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 public class Card {
-    private Boolean isBlocked;
+    private boolean isBlocked;
     private LocalDate expireDate;
-    private Integer cardNumber;
-    private Integer pin;
+    private int cardNumber;
+    private int pin;
     private Balance balance;
 }
