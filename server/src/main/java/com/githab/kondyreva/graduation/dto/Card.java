@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class Card {
     private Boolean isBlocked;
     private LocalDate expireDate;
-    private String cardNumber;
-    private String pin;
+    private Integer cardNumber;
+    private Integer pin;
     private Balance balance;
 }
