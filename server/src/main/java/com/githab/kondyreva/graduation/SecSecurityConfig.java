@@ -36,20 +36,10 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/",
-                        "/error",
-                        "/favicon.ico",
-                        "/**/*.png",
-                        "/**/*.gif",
-                        "/**/*.svg",
-                        "/**/*.jpg",
-                        "/**/*.html",
-                        "/**/*.css",
-                        "/**/*.js",
-                        "/h2-console/**")
+                .antMatchers("/", "/h2-console/**")
                 .permitAll()
                 .antMatchers("/auth/**", "/oauth2/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/server/**").hasRole(MY_ROLE)
+                .antMatchers(HttpMethod.POST, "/server/**").hasRole(MY_ROLE)
                 .and().httpBasic()
                 .and().sessionManagement().disable();
     }
