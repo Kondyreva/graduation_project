@@ -1,7 +1,7 @@
 package com.githab.kondyreva.graduation;
 
-import com.githab.kondyreva.graduation.service.AtmTransaction;
-import com.githab.kondyreva.graduation.service.CardTransaction;
+import com.githab.kondyreva.graduation.repository.CardService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,11 +13,13 @@ import org.slf4j.LoggerFactory;
 public class ServerController {
     private static final Logger LOGGER = LoggerFactory.getLogger(ServerController.class);
 
+    @Autowired
+    CardService cardService;
+
     @PostMapping("/getinfo")
     public ResponseEntity<String> getInfo(@RequestHeader("cardNumber") int cardNumber, @RequestHeader("pin") int pin) {
         LOGGER.debug("cardNumber=" + cardNumber + ", pin=" + pin);
-        CardTransaction card = new AtmTransaction();
 
-        return new ResponseEntity<>(card.getBalance(cardNumber,pin), HttpStatus.OK);
+        return new ResponseEntity<>(cardService.getCardByNumber(cardNumber, pin), HttpStatus.OK);
     }
 }

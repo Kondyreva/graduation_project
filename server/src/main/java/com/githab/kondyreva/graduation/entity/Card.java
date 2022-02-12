@@ -1,4 +1,4 @@
-package com.githab.kondyreva.graduation.dto;
+package com.githab.kondyreva.graduation.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
