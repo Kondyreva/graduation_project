@@ -1,4 +1,4 @@
-package com.githab.kondyreva.graduation;
+package com.githab.kondyreva.graduation.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

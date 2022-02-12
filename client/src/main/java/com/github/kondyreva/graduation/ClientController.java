@@ -4,8 +4,10 @@ import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,7 +25,7 @@ public class ClientController {
         LOGGER.debug("card_number " + cardNumber + " pin " + pin);
         RestTemplate restTemplate = new RestTemplate();
 
-        HttpHeaders requestHeaders = createHeaders(MY_LOGIN, MY_PASSWORD); /*new HttpEntity<String>(createHeaders(MY_LOGIN, MY_PASSWORD))*/
+        HttpHeaders requestHeaders = createHeaders(MY_LOGIN, MY_PASSWORD);
         requestHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         requestHeaders.setContentType(MediaType.APPLICATION_JSON);
         requestHeaders.set("cardNumber", String.valueOf(cardNumber));
@@ -33,14 +35,21 @@ public class ClientController {
 
         HttpEntity<String> httpEntity = new HttpEntity<>("params", requestHeaders);
 
-        ResponseEntity<String> response =
-                restTemplate.exchange(RESOURCE_URL, HttpMethod.POST, httpEntity, String.class);
+        try {
+            ResponseEntity<String> response =
+                    restTemplate.exchange(RESOURCE_URL, HttpMethod.POST, httpEntity, String.class);
 
-        if (HttpStatus.OK.equals(response.getStatusCode())) {
-            return new ResponseEntity<>(response.getBody(), HttpStatus.OK);
+            if (HttpStatus.OK.equals(response.getStatusCode())) {
+                return new ResponseEntity<>(response.getBody(), HttpStatus.OK);
+            }
+            else {
+                LOGGER.error("Server return error: " + response.getStatusCode());
+                return new ResponseEntity<>("Something went wrong",response.getStatusCode());
+            }
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+            return new ResponseEntity<>("Internal error", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
-        return new ResponseEntity<>("No money - no honey :-(", HttpStatus.NO_CONTENT);
     }
 
     HttpHeaders createHeaders(String username, String password) {
