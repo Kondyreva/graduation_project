@@ -22,9 +22,6 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 class CardServiceTest {
     @Autowired
-    CardRepository cardRepository;
-
-    @Autowired
     CardService cardService;
 
     @Test
