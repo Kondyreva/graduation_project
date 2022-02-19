@@ -16,7 +16,7 @@ public class ServerController {
     @Autowired
     CardService cardService;
 
-    @PostMapping("/getinfo")
+    @PostMapping("/getbalance")
     public ResponseEntity<String> getInfo(@RequestHeader("cardNumber") int cardNumber, @RequestHeader("pin") int pin) {
         LOGGER.debug("cardNumber=" + cardNumber + ", pin=" + pin);
 

@@ -22,8 +22,6 @@
         <junit-jupiter.version>5.8.2</junit-jupiter.version>
         <junit-jupiter-engin.version>5.8.2</junit-jupiter-engin.version>
         <mockito-core.version>4.2.0</mockito-core.version>
-        <spring-webmvc.version>5.0.6.RELEASE</spring-webmvc.version>
-        <httpclient.version>4.5.3</httpclient.version>
     </properties>
 
     <dependencies>

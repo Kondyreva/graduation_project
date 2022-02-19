@@ -15,13 +15,13 @@ import org.slf4j.LoggerFactory;
 @RequestMapping("/balance")
 public class ClientController {
     private static final Logger LOGGER = LoggerFactory.getLogger(ClientController.class);
-    private static final String RESOURCE_URL = "http://localhost:8080/server/getinfo";
+    private static final String RESOURCE_URL = "http://localhost:8080/server/getbalance";
     private static final String MY_PASSWORD = "123";
     private static final String MY_LOGIN = "admin";
 
     @GetMapping("/card_number/{cardNumber}/pin/{pin}")
-    public ResponseEntity<String> get(@PathVariable("cardNumber") int cardNumber,
-                                      @PathVariable("pin") int pin) {
+    public ResponseEntity<String> getBalanceFromServer(@PathVariable("cardNumber") int cardNumber,
+                                                       @PathVariable("pin") int pin) {
         LOGGER.debug("card_number " + cardNumber + " pin " + pin);
         RestTemplate restTemplate = new RestTemplate();
 
@@ -52,7 +52,7 @@ public class ClientController {
         }
     }
 
-    HttpHeaders createHeaders(String username, String password) {
+    private HttpHeaders createHeaders(String username, String password) {
         return new HttpHeaders() {{
             String auth = username + ":" + password;
             byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(StandardCharsets.US_ASCII));

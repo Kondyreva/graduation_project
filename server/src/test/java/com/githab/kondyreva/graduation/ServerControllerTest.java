@@ -18,7 +18,6 @@ import java.nio.charset.StandardCharsets;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
 @AutoConfigureMockMvc
 @WebMvcTest(ServerController.class)
 class ServerControllerTest {
@@ -30,10 +29,10 @@ class ServerControllerTest {
     @Test
     @WithMockUser(username="admin",roles={"ADMIN"})
     void getInfo() throws Exception {
-        String expected = "Баланс вашей карты 200.2 RUB";
+        String expected = "Уважаемый Иван, баланс вашей карты 200.2 RUB";
         Mockito.when(cardService.getCardByNumber(123,123)).thenReturn(expected);
 
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/server/getinfo")
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/server/getbalance")
                         .header("cardNumber","123")
                         .header("pin","123")
                         .contentType(MediaType.APPLICATION_JSON)
