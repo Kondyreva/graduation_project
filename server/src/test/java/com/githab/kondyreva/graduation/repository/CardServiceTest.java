@@ -29,7 +29,7 @@ class CardServiceTest {
         int cardNumber = 123;
         int pin = 123;
 
-        assertEquals("Баланс вашей карты 200.2 RUB",cardService.getCardByNumber(cardNumber,pin));
+        assertEquals("Уважаемый Иван, баланс вашей карты 200.2 RUB",cardService.getCardByNumber(cardNumber,pin));
     }
 
     @Test
@@ -37,7 +37,7 @@ class CardServiceTest {
         int cardNumber = 222;
         int pin = 222;
 
-        assertEquals("Карта заблокирована",cardService.getCardByNumber(cardNumber,pin));
+        assertEquals("Уважаемый Петр, ваша карта заблокирована",cardService.getCardByNumber(cardNumber,pin));
     }
 
     @Test
@@ -45,7 +45,7 @@ class CardServiceTest {
         int cardNumber = 111;
         int pin = 111;
 
-        assertEquals("Срок действия карты истек",cardService.getCardByNumber(cardNumber,pin));
+        assertEquals("Уважаемый Сидор, срок действия вашей карты истек",cardService.getCardByNumber(cardNumber,pin));
     }
 
     @Test

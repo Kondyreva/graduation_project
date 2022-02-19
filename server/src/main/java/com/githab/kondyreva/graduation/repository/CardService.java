@@ -11,20 +11,28 @@ import java.util.Optional;
 public class CardService {
     @Autowired
     CardRepository cardRepository;
+    private final static String PREFIX = "Уважаемый ";
 
-    public String getCardByNumber(int cardNumber, int pin){
+    public String getCardByNumber(int cardNumber, int pin) {
+        StringBuilder rezult = new StringBuilder();
         Optional<Card> card = Optional.ofNullable(cardRepository.getCardByCardNumber(cardNumber));
         if (card.isPresent()) {
             if (card.get().getPin() == pin) {
+                rezult.append(PREFIX)
+                        .append(card.get().getClient().getFirstName())
+                        .append(",");
                 if (card.get().isBlocked()) {
-                    return "Карта заблокирована";
+                    rezult.append(" ваша карта заблокирована");
+                } else if (card.get().getExpireDate().isBefore(LocalDate.now())) {
+                    rezult.append(" срок действия вашей карты истек");
+                } else {
+                    rezult.append(" баланс вашей карты ")
+                            .append(card.get().getAmount())
+                            .append(" ")
+                            .append(card.get().getCurrency());
                 }
-                if (card.get().getExpireDate().isBefore(LocalDate.now())) {
-                    return "Срок действия карты истек";
-                }
-                return "Баланс вашей карты " + card.get().getAmount()
-                        + " " + card.get().getCurrency();
-            } else return "Введен неверный пин";
-        } else return "Карта не найдена";
+            } else rezult.append("Введен неверный пин");
+        } else rezult.append("Карта не найдена");
+        return rezult.toString();
     }
 }

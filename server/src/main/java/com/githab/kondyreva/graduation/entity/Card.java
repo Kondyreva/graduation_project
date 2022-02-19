@@ -28,4 +28,8 @@ public class Card {
     private double amount = 0;
     @Column (nullable = false)
     private String currency;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id", nullable = false)
+    private Client client;
 }
