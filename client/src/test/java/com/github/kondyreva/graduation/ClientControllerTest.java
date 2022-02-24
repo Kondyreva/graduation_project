@@ -23,7 +23,7 @@ class ClientControllerTest {
 
     @Test
     void getBalanceFromServerTest() {
-        String expected = "Игорь, баланс вашей карты 777 RUB";
+        String expected = "Уважаемый Иван, баланс вашей карты 200.2 RUB";
 
         when(restTemplate.exchange(ArgumentMatchers.anyString(),
                 ArgumentMatchers.any(HttpMethod.class),
